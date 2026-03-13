@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# Program Budget & Allocation Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript dashboard for rural development program budget planning.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 18** + **TypeScript**
+- **Vite** 
+- **Tailwind CSS v4** 
+- **Recharts** (charts)
+- **Lucide React** (icons)
+- **localStorage** 
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Budget allocation table with sort, filter, search, pagination
+- Add / Edit / Delete allocations
+- Auto-computed summary cards (clusters, villages, beneficiaries, budgets)
+- 4 charts: Budget by Cluster, Budget Distribution, Beneficiaries, Efficiency
+- CSV export
+- Dark mode (persisted)
+- Data persisted in localStorage
+- Loading skeletons & error handling
+- Fully responsive
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+yarn install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Start development server
+yarn dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Build for production
+yarn build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+yarn preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Folder Structure
+
+```
+src/
+├── components/
+│   ├── AllocationForm/   
+│   ├── BudgetTable/     
+│   ├── SummaryCards/     
+│   ├── Charts/           
+│   └── UI/               
+├── pages/Dashboard/     
+├── services/
+│   └── allocationService.ts  # Mock API (GET/POST/PATCH/DELETE)
+├── hooks/
+│   └── useAllocations.ts     
+├── types/
+│   └── allocation.ts         
+├── utils/
+│   └── calculations.ts       
+└── context/
+    └── ThemeContext.tsx       # Dark mode
+```
+
+## Mock API Endpoints (simulated)
+
+| Method | Endpoint         | Description           |
+| ------ | ---------------- | --------------------- |
+| GET    | /allocations     | Fetch all allocations |
+| POST   | /allocations     | Create new allocation |
+| PATCH  | /allocations/:id | Update allocation     |
+| DELETE | /allocations/:id | Delete allocation     |
+
+All data is persisted to `localStorage` under the key `budget_allocations`.  
+On first load, 8 seed records are loaded automatically.
+
+## Deployment
+Vercel has been used for deployment. You can view the live dashboard here: [Program Budget Dashboard](https://program-budget-dashboard.vercel.app/)
+
+
+## Resetting Data
+
+To reset to seed data, open the browser console and run:
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+localStorage.removeItem("budget_allocations");
+location.reload();
 ```
+
+## Charts Explained
+
+| Chart                    | Why it's here                                  |
+| ------------------------ | ---------------------------------------------- |
+| Budget by Cluster        | Cluster-level Seeds vs Tools comparison        |
+| Budget Distribution      | Overall Seeds vs Tools pie split               |
+| Beneficiaries by Cluster | Shows program reach, not just spending         |
+| Budget Efficiency        | UGX per beneficiary — reveals cost disparities |
