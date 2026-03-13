@@ -40,6 +40,9 @@ yarn preview
 
 # Run tests
 yarn test
+
+# Run tests with UI
+yarn test:ui
 ```
 
 ## Folder Structure
