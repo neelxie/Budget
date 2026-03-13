@@ -37,6 +37,9 @@ yarn build
 
 # Preview production build
 yarn preview
+
+# Run tests
+yarn test
 ```
 
 ## Folder Structure
@@ -75,7 +78,7 @@ All data is persisted to `localStorage` under the key `budget_allocations`.
 On first load, 8 seed records are loaded automatically.
 
 ## Deployment
-Vercel has been used for deployment. You can view the live dashboard here: [Program Budget Dashboard](https://program-budget-dashboard.vercel.app/)
+Vercel has been used for deployment. You can view the live dashboard here: [Program Budget Dashboard](https://budget-sigma-sage.vercel.app/)
 
 
 ## Resetting Data
