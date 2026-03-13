@@ -29,6 +29,17 @@ interface ChartsProps {
 const CLUSTER_COLORS = ["#1976d2", "#7b1fa2", "#e65100", "#2e7d32", "#c62828"];
 const PIE_COLORS = ["#2e7d32", "#e65100"];
 
+// Typed as `any` to satisfy Recharts' complex union types (LabelFormatter,
+// Formatter<ValueType,NameType>) without unsafe inline casts in JSX.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const labelMillions = (v: any): string =>
+  typeof v === 'number' ? formatMillions(v) : ''
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const pieTooltipFormatter = (v: any): [string, string] =>
+  [typeof v === 'number' ? formatUGX(v) : String(v ?? ''), '']
+
+
 //  Custom tooltip
 function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
@@ -186,12 +197,12 @@ export function Charts({
               <LabelList
                 dataKey="value"
                 position="outside"
-                formatter={(v: number) => formatMillions(v)}
+                formatter={labelMillions}
                 style={{ fontSize: 11, fill: axisColor }}
               />
             </Pie>
             <Tooltip
-              formatter={(v: number) => [formatUGX(v), ""]}
+              formatter={pieTooltipFormatter}
               contentStyle={{
                 background: "var(--bg-surface)",
                 border: "1px solid var(--divider)",
@@ -246,7 +257,7 @@ export function Charts({
               }}
             />
             <Bar dataKey="Beneficiaries" radius={[0, 4, 4, 0]}>
-              {beneficiaryData.map((entry, i) => (
+              {beneficiaryData.map((_, i) => (
                 <Cell
                   key={i}
                   fill={CLUSTER_COLORS[i % CLUSTER_COLORS.length]}
