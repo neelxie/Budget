@@ -1,3 +1,6 @@
+# About
+A React + TypeScript dashboard for rural development program budget planning.
+
 # Program Budget & Allocation Dashboard
 
 A React + TypeScript dashboard for rural development program budget planning.
