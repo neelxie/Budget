@@ -101,3 +101,17 @@ location.reload();
 | Budget Distribution      | Overall Seeds vs Tools pie split               |
 | Beneficiaries by Cluster | Shows program reach, not just spending         |
 | Budget Efficiency        | UGX per beneficiary — reveals cost disparities |
+
+## Screenshots
+
+<img width="1654" height="961" alt="Screenshot from 2026-03-13 18-54-55" src="https://github.com/user-attachments/assets/46a8e1e3-5182-4daa-a5a5-5676a62e5c6c" />
+<img width="1654" height="961" alt="Screenshot from 2026-03-13 18-55-08" src="https://github.com/user-attachments/assets/bc6ad064-b9c0-47f5-8ce1-22e93a4e1472" />
+<img width="1654" height="961" alt="Screenshot from 2026-03-13 18-55-18" src="https://github.com/user-attachments/assets/7c556a08-15f3-4832-a7d3-16e4a95e2db9" />
+<img width="1654" height="961" alt="Screenshot from 2026-03-13 18-55-25" src="https://github.com/user-attachments/assets/a014f1cd-977d-43a9-b321-c81d130cce6d" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-55-49" src="https://github.com/user-attachments/assets/a1ee51c4-9cd8-43aa-b6b2-4a978e8df4db" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-56-02" src="https://github.com/user-attachments/assets/7579f228-944f-490b-8537-2da592066794" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-56-19" src="https://github.com/user-attachments/assets/7865c681-b5ac-4482-aa36-73f4f9bccc41" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-56-33" src="https://github.com/user-attachments/assets/54229a24-de34-40b9-9fbc-3f48ae0d23df" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-56-45" src="https://github.com/user-attachments/assets/fb41562e-9934-41ec-849b-dda58582b43d" />
+<img width="1184" height="715" alt="Screenshot from 2026-03-13 18-56-55" src="https://github.com/user-attachments/assets/7b6e8c6a-4be8-42b3-bf7c-b32af5947028" />
+
